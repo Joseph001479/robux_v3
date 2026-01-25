@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robux Premium | Entrega Imediata 24h | Site Oficial</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+    
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- JavaScript -->
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <!-- Barra de Alerta - FIXA NO TOPO -->
+    <div class="alert-bar">
+        <div class="alert-content">
+            <i class="fas fa-bolt"></i>
+            <span>⚠ ENTREGA AUTOMÁTICA 24H | NÃO CAIA EM GOLPES - COMPRE APENAS NO SITE OFICIAL</span>
+            <i class="fas fa-shield-alt"></i>
+        </div>
+    </div>
+
+    <!-- Header - CORRIGIDO O BUG -->
+    <header class="main-header">
+        <div class="container header-container">
+            <div class="brand">
+                <img src="assets/logo.png" alt="Robux Premium" class="logo-img">
+                <div class="brand-text">
+                    <div class="brand-name">ROBUX</div>
+                    <div class="brand-tagline">Entrega Imediata</div>
+                </div>
+            </div>
+
+            <!-- BARRA DE BUSCA 100% RESPONSIVA -->
+            <div class="search-container">
+                <div class="search-wrapper">
+                    <input type="text" class="search-input" 
+                           placeholder="Buscar pacotes de Robux..." 
+                           aria-label="Buscar pacotes de Robux"
+                           autocomplete="off">
+                    
+                    <button class="search-btn" aria-label="Buscar">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    
+                    <button class="clear-search-btn" 
+                            title="Limpar busca" 
+                            aria-label="Limpar busca"
+                            style="display: none;">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    
+                    <!-- Sugestões de busca -->
+                    <div class="search-suggestions">
+                        <div class="suggestion-item" data-search="700">
+                            <i class="fas fa-robot"></i>
+                            <span>700 Robux</span>
+                            <span class="suggestion-badge">Popular</span>
+                        </div>
+                        <div class="suggestion-item" data-search="1200">
+                            <i class="fas fa-robot"></i>
+                            <span>1.200 Robux</span>
+                            <span class="suggestion-badge">Oferta</span>
+                        </div>
+                        <div class="suggestion-item" data-search="2100">
+                            <i class="fas fa-robot"></i>
+                            <span>2.100 Robux</span>
+                        </div>
+                        <div class="suggestion-item" data-search="3600">
+                            <i class="fas fa-robot"></i>
+                            <span>3.600 Robux</span>
+                            <span class="suggestion-badge">Super</span>
+                        </div>
+                        <div class="suggestion-item" data-search="4500">
+                            <i class="fas fa-robot"></i>
+                            <span>4.500 Robux</span>
+                        </div>
+                        <div class="suggestion-item" data-search="10000">
+                            <i class="fas fa-robot"></i>
+                            <span>10.000 Robux</span>
+                            <span class="suggestion-badge">Premium</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="header-stats">
+                <div class="stat-item">
+                    <div class="stat-value">1.2K+</div>
+                    <div class="stat-label">Vendas Hoje</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">28K+</div>
+                    <div class="stat-label">Clientes</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Banner Principal -->
+    <section class="hero-banner">
+        <div class="container">
+            <div class="banner-content">
+                <img src="assets/robuxx.gif" alt="Banner Roblox Premium" class="banner-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Produtos - TODOS OS PRODUTOS -->
+    <section class="products-section" id="produtos">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">PACOTES PREMIUM <span>ROBUX</span></h2>
+                <p class="section-subtitle">Escolha seu pacote com os melhores preços e entrega imediata via e-mail</p>
+            </div>
+
+            <!-- Contador de Produtos -->
+            <div class="products-counter">
+                Mostrando <span id="productsCount">8</span> de <span>8</span> produtos
+            </div>
+
+            <!-- Filtros -->
+            <div class="products-controls">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-th"></i>
+                    Todos
+                </button>
+                <button class="filter-btn" data-filter="available">
+                    <i class="fas fa-check-circle"></i>
+                    Disponíveis
+                </button>
+                <button class="filter-btn" data-filter="offer">
+                    <i class="fas fa-fire"></i>
+                    Ofertas
+                </button>
+                <button class="filter-btn" data-filter="popular">
+                    <i class="fas fa-star"></i>
+                    Populares
+                </button>
+                <button class="filter-btn" data-filter="premium">
+                    <i class="fas fa-crown"></i>
+                    Premium
+                </button>
+            </div>
+
+            <!-- Grid de Produtos - TODOS OS PRODUTOS -->
+            <div class="products-grid">
+                <!-- Produto 1 - 700 Robux -->
+                <div class="product-card card-esgotado" data-category="popular" data-search="700 robux">
+                    <div class="selo-esgotado">ESGOTADO</div>
+                    <div class="product-badge badge-best-seller">MAIS VENDIDO</div>
+                    <div class="product-image-container">
+                        <img src="assets/01KDF113XP3QQFHVJ6FY3ZQPSV.png" alt="700 Robux" class="product-img floating">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">700 ROBUX</h3>
+                        <div class="product-rating">
+                            <div class="rating-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="rating-count">(248 avaliações)</span>
+                        </div>
+                        <div class="product-pricing">
+                            <div class="price-container">
+                                <span class="old-price">R$ 27,90</span>
+                                <span class="current-price">R$ 18,90</span>
+                                <span class="discount-badge">-32%</span>
+                            </div>
+                        </div>
+                        <div class="delivery-info">
+                            <i class="fas fa-bolt"></i>
+                            <span>Entrega em 2 minutos</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn-buy disabled" disabled>
+                                <i class="fas fa-times-circle"></i>
+                                ESGOTADO
+                            </button>
+                        </div>
+                        <div class="product-stats">
+                            <div class="stat-item-small">
+                                <div class="stat-value-small">248</div>
+                                <div>Vendas</div>
+                            </div>
+                            <div class="stat-item-small">
+                                <div class="stat-value-small">4.7</div>
+                                <div>Avaliação</div>
+                            </div>
+                            <div class="stat-item-small">
+                                <div class="stat-value-small">2min</div>
+                                <div>Entrega</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produto 2 - 1.200 Robux -->
+                <div class="product-card highlight" data-category="popular offer available" data-search="1200 robux 1.200">
+                    <div class="product-badge badge-offer">OFERTA ESPECIAL</div>
+                    <div class="product-image-container">
+                        <img src="assets/01KDF0JJ096F20YCKH7W1FP111.png" alt="1200 Robux" class="product-img floating">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">1.200 ROBUX</h3>
+                        <div class="product-rating">
+                            <div class="rating-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="rating-count">(312 avaliações)</span>
+                        </div>
+                        <div class="product-pricing">
+                            <div class="price-container">
+                                <span class="old-price">R$ 39,90</span>
+                                <span class="current-price">R$ 29,90</span>
+                                <span class="discount-badge">-25%</span>
+                            </div>
+                        </div>
+                        <div class="delivery-info">
+                            <i class="fas fa-bolt"></i>
+                            <span>Entrega em 1 minuto</span>
+                        </div>
+                        <div class="product-actions">
+                            <a href="produtos/1200-robux.html" class="btn-buy">
+                                <i class="fas fa-shopping-cart"></i>
+                                COMPRAR AGORA
+                            </a>
+                        </div>
+                        <div class="product-stats">
+                            <div class="stat-item-small">
+                                <div class="stat-value-small">312</div>
+                                <div>Vendas</div>
+                            </div>
+                            <div class="stat-item-small">
+                                <div class="stat-value-small">5.0</div>
+                                <div>Avaliação</div>
+                            </div>
+                            <div class="stat-item-small">
+                                <div class="stat-value-small">1min</div>
+                                <div>Entrega</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produto 3 - 1700 Robux -->
+                <div class="product-card" data-category="available popular" data-search="1700 robux 1.700">
+                    <div class="product-badge badge-economy">ECONÔMICO</div>
+                    <div class="product-image-container">
+                        <img src="assets/01KDF0MT8A1YMEM4951E8CMSTV.png" alt="1700 Robux" class="product-img floating">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">1.700 ROBUX</h3>
+                        <div class="product-rating">
+                            <div class="rating-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="rating-count">(187 avaliações)</span>
+                        </div>
+                        <div class="product-pricing">
+                            <div class="price-container">
+                                <span class="old-price">R$ 59,90</span>
+                                <span class="current-price">R$ 44,90</span>
+                                <span class="discount-badge">-25%</span>
+                            </div>
+                        </div>
+                        <div class="delivery-info">
+                            <i class="fas fa-bolt"></i>
+                            <span>Entrega em 2 minutos</span>
+                        </div>
+                        <div class="product-actions">
+                            <a href="produtos/1700-robux.html" class="btn-buy">
+                                <i class="fas fa-shopping-cart"></i>
+                                COMPRAR AGORA
+                            </a>
+                        </div>
+                        <div class="product-stats">
+                            <div class="stat-item-small">
+                                <div class="stat-value-small">187</div>
+                                <div>Vendas</div>
+                            </div>
+                            <div class="stat-item-small">
+                                <div class="stat-value-small">4.0</div>
+                                <div>Avaliação</div>
+                            </div>
+                            <div class="stat-item-small">
+                                <div class="stat-value-small">2min</div>
+                                <div>Entrega</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produto 4 - 2100 Robux -->
+                <div class="product-card" data-category="available popular" data-search="2100 robux 2.100">
+                    <div class="product-badge badge-popular">POPULAR</div>
+                    <div class="product-image-container">
+                        <img src="assets/01KDF0NZM4A97ASTN89CNPK70Q.png" alt="2100 Robux" class="product-img floating">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">2.100 ROBUX</h3>
+                        <div class="product-rating">
+                            <div class="rating-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="rating-count">(276 avaliações)</span>
+                        </div>
+                        <div class="product-pricing">
+                            <div class="price-container">
+                                <span class="old-price">R$ 79,90</span>
+                                <span class="current-price">R$ 59,90</span>
+                                <span class="discount-badge">-25%</span>
+                            </div>
+                        </div>
+                        <div class="delivery-info">
+                            <i class="fas fa-bolt"></i>
+                            <span>Entrega em 2 minutos</span>
+                        </div>
+                        <div class="product-actions">
+                            <a href="produtos/2100-robux.html" class="btn-buy">
+                                <i class="fas fa-shopping-cart"></i>
+                                COMPRAR AGORA
+                            </a>
+                        </div>
+                        <div class="product-stats">
+                            <div class="stat-item-small">
+                                <div class="stat-value-small">276</div>
+                                <div>Vendas</div>
+                            </div>
+                            <div class="stat-item-small">
+                                <div class="stat-value-small">4.5</div>
+                                <div>Avaliação</div>
+                            </div>
+                            <div class="stat-item-small">
+                                <div class="stat-value-small">2min</div>
+                                <div>Entrega</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produto 5 - 3600 Robux -->
+                <div class="product-card" data-category="available premium" data-search="3600 robux 3.600">
+                    <div class="product-badge badge-super">SUPER</div>
+                    <div class="product-image-container">
+                        <img src="assets/01KDF0PKB6657HFTQQZE7JJW8Y.png" alt="3600 Robux" class="product-img floating">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">3.600 ROBUX</h3>
+                        <div class="product-rating">
+                            <div class="rating-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="rating-count">(198 avaliações)</span>
+                        </div>
+                        <div class="product-pricing">
+                            <div class="price-container">
+                                <span class="old-price">R$ 129,90</span>
+                                <span class="current-price">R$ 99,90</span>
+                                <span class="discount-badge">-23%</span>
+                            </div>
+                        </div>
+                        <div class="delivery-info">
+                            <i class="fas fa-bolt"></i>
+                            <span>Entrega em 3 minutos</span>
+                        </div>
+                        <div class="product-actions">
+                            <a href="produtos/3600-robux.html" class="btn-buy">
+                                <i class="fas fa-shopping-cart"></i>
+                                COMPRAR AGORA
+                            </a>
+                        </div>
+                        <div class="product-stats">
+                            <div class="stat-item-small">
+                                <div class="stat-value-small">198</div>
+                                <div>Vendas</div>
+                            </div>
+                            <div class="stat-item-small">
+                                <div class="stat-value-small">5.0</div>
+                                <div>Avaliação</div>
+                            </div>
+                            <div class="stat-item-small">
+                                <div class="stat-value-small">3min</div>
+                                <div>Entrega</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produto 6 - 4500 Robux -->
+                <div class="product-card highlight" data-category="available premium offer" data-search="4500 robux 4.500">
+                    <div class="product-badge badge-mega">MEGA</div>
+                    <div class="product-image-container">
+                        <img src="assets/4500-min.png" alt="4500 Robux" class="product-img floating">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">4.500 ROBUX</h3>
+                        <div class="product-rating">
+                            <div class="rating-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <span class="rating-count">(156 avaliações)</span>
+                        </div>
+                        <div class="product-pricing">
+                            <div class="price-container">
+                                <span class="old-price">R$ 159,90</span>
+                                <span class="current-price">R$ 129,90</span>
+                                <span class="discount-badge">-19%</span>
+                            </div>
+                        </div>
+                        <div class="delivery-info">
+                            <i class="fas fa-bolt"></i>
+                            <span>Entrega em 3 minutos</span>
+                        </div>
+                        <div class="product-actions">
+                            <a href="produtos/4500-robux.html" class="btn-buy">
+                                <i class="fas fa-shopping-cart"></i>
+                                COMPRAR AGORA
+                            </a>
+                        </div>
+                        <div class="product-stats">
+                            <div class="stat-item-small">
+                                <div class="stat-value-small">156</div>
+                                <div>Vendas</div>
+                            </div>
+                            <div class="stat-item-small">
+                                <div class="stat-value-small">4.5</div>
+                                <div>Avaliação</div>
+                            </div>
+                            <div class="stat-item-small">
+                                <div class="stat-value-small">3min</div>
+                                <div>Entrega</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produto 7 - 7000 Robux -->
+                <div class="product-card card-esgotado" data-category="premium" data-search="7000 robux 7.000">
+                    <div class="selo-esgotado">ESGOTADO</div>
+                    <div class="product-badge badge-ultra">ULTRA</div>
+                    <div class="product-image-container">
+                        <img src="assets/7000-min.png" alt="7000 Robux" class="product-img floating">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">7.000 ROBUX</h3>
+                        <div class="product-rating">
+                            <div class="rating-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <span class="rating-count">(132 avaliações)</span>
+                        </div>
+                        <div class="product-pricing">
+                            <div class="price-container">
+                                <span class="old-price">R$ 249,90</span>
+                                <span class="current-price">R$ 199,90</span>
+                                <span class="discount-badge">-20%</span>
+                            </div>
+                        </div>
+                        <div class="delivery-info">
+                            <i class="fas fa-bolt"></i>
+                            <span>Entrega em 5 minutos</span>
+                        </div>
+                        <div class="product-actions">
+                            <button class="btn-buy disabled" disabled>
+                                <i class="fas fa-times-circle"></i>
+                                ESGOTADO
+                            </button>
+                        </div>
+                        <div class="product-stats">
+                            <div class="stat-item-small">
+                                <div class="stat-value-small">132</div>
+                                <div>Vendas</div>
+                            </div>
+                            <div class="stat-item-small">
+                                <div class="stat-value-small">4.0</div>
+                                <div>Avaliação</div>
+                            </div>
+                            <div class="stat-item-small">
+                                <div class="stat-value-small">5min</div>
+                                <div>Entrega</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Produto 8 - 10000 Robux -->
+                <div class="product-card" data-category="premium available" data-search="10000 robux 10.000">
+                    <div class="product-badge badge-premium">PREMIUM</div>
+                    <div class="product-image-container">
+                        <img src="assets/01KDF0WET4T5QGS28P3H9A5DM7.png" alt="10000 Robux" class="product-img floating">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">10.000 ROBUX</h3>
+                        <div class="product-rating">
+                            <div class="rating-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <span class="rating-count">(89 avaliações)</span>
+                        </div>
+                        <div class="product-pricing">
+                            <div class="price-container">
+                                <span class="old-price">R$ 349,90</span>
+                                <span class="current-price">R$ 299,90</span>
+                                <span class="discount-badge">-14%</span>
+                            </div>
+                        </div>
+                        <div class="delivery-info">
+                            <i class="fas fa-bolt"></i>
+                            <span>Entrega em 5 minutos</span>
+                        </div>
+                        <div class="product-actions">
+                            <a href="produtos/10000-robux.html" class="btn-buy">
+                                <i class="fas fa-shopping-cart"></i>
+                                COMPRAR AGORA
+                            </a>
+                        </div>
+                        <div class="product-stats">
+                            <div class="stat-item-small">
+                                <div class="stat-value-small">89</div>
+                                <div>Vendas</div>
+                            </div>
+                            <div class="stat-item-small">
+                                <div class="stat-value-small">5.0</div>
+                                <div>Avaliação</div>
+                            </div>
+                            <div class="stat-item-small">
+                                <div class="stat-value-small">5min</div>
+                                <div>Entrega</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mensagem quando nenhum produto for encontrado -->
+            <div class="no-products" id="noProductsMessage">
+                <i class="fas fa-search"></i>
+                <h3>Nenhum produto encontrado</h3>
+                <p>Tente buscar por outro termo ou limpar os filtros</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Banner Promocional -->
+    <section class="promo-banner">
+        <div class="container">
+            <div class="promo-content">
+                <img src="assets/01KEB4WFRJKQ7QHTQ74PBMHVA7.jpg" alt="Banner Promocional Roblox" class="promo-img">
+                <div class="promo-overlay">
+                    <div class="promo-text">
+                        <h2 class="promo-title">EXPLORE, CRIE E BRILHE NO ROBLOX</h2>
+                        <p class="promo-description"></p>
+                        <a href="#produtos" class="btn-promo">
+                            <i class="fas fa-gem"></i>
+                            VER TODOS OS PRODUTOS
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Benefícios -->
+    <section class="benefits-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">POR QUE ESCOLHER A <span>ROBUX PREMIUM</span></h2>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card fade-in-up">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="benefit-title">Compra 100% Segura</h3>
+                    <p class="benefit-description">Ambiente protegido com criptografia SSL e certificado de segurança para todas as transações.</p>
+                </div>
+                <div class="benefit-card fade-in-up">
+                    <div class="benefit-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="benefit-title">Entrega Imediata</h3>
+                    <p class="benefit-description">Receba seus Robux automaticamente via e-mail em até 5 minutos após a confirmação do pagamento.</p>
+                </div>
+                <div class="benefit-card fade-in-up">
+                    <div class="benefit-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3 class="benefit-title">Suporte 24/7</h3>
+                    <p class="benefit-description">Equipe especializada disponível para ajudar com qualquer dúvida ou problema a qualquer hora.</p>
+                </div>
+                <div class="benefit-card fade-in-up">
+                    <div class="benefit-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3 class="benefit-title">Garantia Total</h3>
+                    <p class="benefit-description">Se não receber seus Robux, devolvemos seu dinheiro em até 24 horas, sem burocracia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="assets/logo.png" alt="Robux Premium" class="footer-logo">
+                    <p class="footer-tagline">Os melhores preços de Robux com entrega automática e segurança garantida.</p>
+                </div>
+                <div class="footer-links">
+                    <h4 class="footer-link-title">LINKS RÁPIDOS</h4>
+                    <a href="#produtos" class="footer-link">Todos os Produtos</a>
+                    <a href="#produtos" class="footer-link">Pacotes em Oferta</a>
+                    <a href="#produtos" class="footer-link">Mais Populares</a>
+                </div>
+                <div class="footer-links">
+                    <h4 class="footer-link-title">AJUDA</h4>
+                    <a href="como-comprar.html" class="footer-link">Como Comprar</a>
+                    <a href="politica-reembolso.html" class="footer-link">Política de Reembolso</a>
+                    <a href="termos-uso.html" class="footer-link">Termos de Uso</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">© 2025 Robux Premium. Todos os direitos reservados.</p>
+                <p class="disclaimer">Robux Premium não é afiliado à Roblox Corporation. Roblox é uma marca registrada da Roblox Corporation.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
