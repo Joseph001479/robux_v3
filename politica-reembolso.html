@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Reembolso | Robux</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="assets/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+    
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <style>
+        /* ============================================
+           VARIÁVEIS GLOBAIS E RESET
+           ============================================ */
+        :root {
+            /* Cores Principais - Tema Ouro Premium */
+            --color-primary: #FFD700;
+            --color-primary-dark: #FFAA00;
+            --color-primary-light: #FFE55C;
+            --color-primary-alpha-10: rgba(255, 215, 0, 0.1);
+            --color-primary-alpha-20: rgba(255, 215, 0, 0.2);
+            --color-primary-alpha-30: rgba(255, 215, 0, 0.3);
+            
+            /* Cores de Fundo */
+            --color-bg-dark: #000000;
+            --color-bg-darker: #0A0A0A;
+            --color-bg-gray: #121212;
+            --color-bg-gray-light: #1E1E1E;
+            --color-bg-gray-lighter: #2D2D2D;
+            --color-bg-card: #1A1A1A;
+            
+            /* Cores de Texto */
+            --color-text-primary: #FFFFFF;
+            --color-text-secondary: rgba(255, 255, 255, 0.85);
+            --color-text-tertiary: rgba(255, 255, 255, 0.6);
+            
+            /* Cores de Status */
+            --color-success: #4CAF50;
+            --color-success-light: #66BB6A;
+            --color-error: #FF4D4D;
+            --color-error-dark: #D32F2F;
+            --color-warning: #FF9800;
+            --color-info: #2196F3;
+            
+            /* Sombras */
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+            --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.4);
+            --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.5);
+            --shadow-gold: 0 0 30px rgba(255, 215, 0, 0.25);
+            
+            /* Bordas */
+            --border-radius-sm: 6px;
+            --border-radius-md: 12px;
+            --border-radius-lg: 16px;
+            --border-radius-xl: 20px;
+            --border-radius-full: 50px;
+            
+            /* Transições */
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-normal: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+            
+            /* Espaçamentos */
+            --spacing-xs: 8px;
+            --spacing-sm: 12px;
+            --spacing-md: 20px;
+            --spacing-lg: 32px;
+            --spacing-xl: 48px;
+            --spacing-2xl: 64px;
+            
+            /* Tipografia */
+            --font-family-base: 'Poppins', -apple-system, sans-serif;
+            --font-family-heading: 'Montserrat', var(--font-family-base);
+        }
+
+        /* Reset */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-family-base);
+            background-color: var(--color-bg-dark);
+            color: var(--color-text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+            padding-top: 100px;
+        }
+
+        /* Background com gradiente sutil */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 10% 20%, rgba(255, 215, 0, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(255, 170, 0, 0.03) 0%, transparent 50%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-family-heading);
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: color var(--transition-fast);
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+
+        button {
+            font-family: inherit;
+            border: none;
+            background: none;
+            cursor: pointer;
+            color: inherit;
+            outline: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        /* ============================================
+           HEADER SIMPLIFICADO
+           ============================================ */
+        .simple-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(18, 18, 18, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 215, 0, 0.15);
+            z-index: 999;
+            height: 80px;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            align-items: center;
+        }
+
+        .simple-header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .simple-brand {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+        }
+
+        .simple-logo {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+            image-rendering: -webkit-optimize-contrast;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+        }
+
+        /* ============================================
+           BOTÃO VOLTAR
+           ============================================ */
+        .btn-voltar {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding: 12px 24px;
+            background: var(--color-primary);
+            color: var(--color-bg-dark);
+            border-radius: var(--border-radius-full);
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: all var(--transition-fast);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-voltar:hover {
+            background: var(--color-primary-dark);
+            transform: translateX(-5px);
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+        }
+
+        .btn-voltar i {
+            font-size: 1rem;
+        }
+
+        /* ============================================
+           CONTEÚDO DA PÁGINA
+           ============================================ */
+        .content-page {
+            padding: var(--spacing-2xl) 0;
+            min-height: calc(100vh - 200px);
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: var(--spacing-2xl);
+            position: relative;
+        }
+
+        .page-title {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            color: var(--color-primary);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .page-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+            border-radius: var(--border-radius-full);
+            margin: var(--spacing-md) auto;
+        }
+
+        .page-update {
+            color: var(--color-text-tertiary);
+            font-size: 0.9rem;
+            margin-top: var(--spacing-lg);
+        }
+
+        /* Seções de Conteúdo */
+        .content-section {
+            background: var(--color-bg-card);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-xl);
+            margin-bottom: var(--spacing-xl);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: var(--shadow-md);
+        }
+
+        .section-title {
+            color: var(--color-primary);
+            font-size: 1.8rem;
+            margin-bottom: var(--spacing-lg);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .section-title i {
+            font-size: 1.5rem;
+        }
+
+        /* Política Cards */
+        .policy-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+        }
+
+        .policy-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: var(--border-radius-md);
+            padding: var(--spacing-lg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all var(--transition-normal);
+        }
+
+        .policy-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-5px);
+            border-color: var(--color-primary);
+        }
+
+        .policy-card.important {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 170, 0, 0.05) 100%);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .policy-icon {
+            font-size: 2.5rem;
+            color: var(--color-primary);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .policy-card h3 {
+            color: var(--color-primary);
+            margin-bottom: var(--spacing-sm);
+            font-size: 1.3rem;
+        }
+
+        .policy-card p {
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Lista de Condições */
+        .conditions-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+        }
+
+        .condition-item {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-md);
+            padding: var(--spacing-md);
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: var(--border-radius-md);
+            border-left: 3px solid var(--color-primary);
+        }
+
+        .condition-item i {
+            color: var(--color-primary);
+            font-size: 1.2rem;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        .condition-item.approved i {
+            color: var(--color-success);
+        }
+
+        .condition-item.denied i {
+            color: var(--color-error);
+        }
+
+        /* Processo de Reembolso */
+        .process-steps {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+        }
+
+        .process-step {
+            display: flex;
+            gap: var(--spacing-lg);
+            padding: var(--spacing-lg);
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: var(--border-radius-md);
+            position: relative;
+        }
+
+        .process-step::before {
+            content: '';
+            position: absolute;
+            left: 40px;
+            top: 70px;
+            bottom: -30px;
+            width: 2px;
+            background: rgba(255, 215, 0, 0.3);
+            z-index: 1;
+        }
+
+        .process-step:last-child::before {
+            display: none;
+        }
+
+        .step-icon {
+            flex-shrink: 0;
+            width: 50px;
+            height: 50px;
+            background: var(--color-primary);
+            color: var(--color-bg-dark);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .step-content {
+            flex: 1;
+        }
+
+        .step-title {
+            color: var(--color-primary);
+            font-size: 1.3rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .step-description {
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Destaque Importante */
+        .important-notice {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 170, 0, 0.05) 100%);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-xl);
+            margin: var(--spacing-xl) 0;
+        }
+
+        .important-notice h3 {
+            color: var(--color-primary);
+            margin-bottom: var(--spacing-md);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .important-notice p {
+            color: var(--color-text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        .simple-footer {
+            background: var(--color-bg-darker);
+            padding: var(--spacing-xl) 0 var(--spacing-lg);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-xl);
+            margin-bottom: var(--spacing-lg);
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: var(--color-text-secondary);
+            font-size: 0.9rem;
+            transition: color var(--transition-fast);
+        }
+
+        .footer-link:hover {
+            color: var(--color-primary);
+        }
+
+        .copyright {
+            color: var(--color-text-tertiary);
+            font-size: 0.85rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .disclaimer {
+            color: var(--color-text-tertiary);
+            font-size: 0.75rem;
+            opacity: 0.7;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.4;
+        }
+
+        /* ============================================
+           RESPONSIVIDADE
+           ============================================ */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 80px;
+            }
+            
+            .content-page {
+                padding: var(--spacing-xl) 0;
+            }
+            
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .content-section {
+                padding: var(--spacing-lg);
+            }
+            
+            .policy-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .process-step {
+                flex-direction: column;
+                gap: var(--spacing-md);
+                padding: var(--spacing-md);
+            }
+            
+            .process-step::before {
+                left: 25px;
+                top: 60px;
+            }
+            
+            .step-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: var(--spacing-md);
+            }
+            
+            .btn-voltar {
+                padding: 10px 20px;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .simple-logo {
+                height: 40px;
+            }
+            
+            .page-title {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .content-section {
+                padding: var(--spacing-md);
+            }
+            
+            .important-notice {
+                padding: var(--spacing-lg);
+            }
+        }
+
+        /* ============================================
+           ANIMAÇÕES
+           ============================================ */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* ============================================
+           BOTÃO DE SUPORTE
+           ============================================ */
+        .support-button {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            padding: var(--spacing-md) var(--spacing-xl);
+            background: linear-gradient(45deg, var(--color-primary), var(--color-primary-dark));
+            color: var(--color-bg-dark);
+            border-radius: var(--border-radius-full);
+            font-weight: 800;
+            font-size: 1rem;
+            transition: all var(--transition-fast);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: var(--spacing-lg);
+            text-decoration: none;
+        }
+
+        .support-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="simple-header">
+        <div class="container">
+            <a href="index.html" class="simple-brand">
+                <img src="assets/logo.png" alt="Robux Premium" class="simple-logo">
+            </a>
+            <a href="index.html" class="btn-voltar">
+                <i class="fas fa-arrow-left"></i>
+                Voltar ao Site
+            </a>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="content-page">
+        <div class="container">
+            <div class="page-header fade-in-up">
+                <h1 class="page-title">POLÍTICA DE REEMBOLSO</h1>
+                <p class="page-subtitle">Transparência e segurança em todas as transações</p>
+                <p class="page-update"><i class="fas fa-calendar-alt"></i> Última atualização: 15 de Janeiro de 2024</p>
+            </div>
+
+            <!-- Introdução -->
+            <section class="content-section fade-in-up">
+                <h2 class="section-title">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    Nossa Garantia de Satisfação
+                </h2>
+                <p>Na Robux Premium, priorizamos a satisfação total de nossos clientes. Nossa política de reembolso foi criada para garantir que você tenha uma experiência de compra segura e sem preocupações.</p>
+                
+                <div class="important-notice">
+                    <h3><i class="fas fa-shield-alt"></i> GARANTIA 100% SATISFEITO</h3>
+                    <p>Se você não receber seus Robux após a compra, devolvemos 100% do seu dinheiro em até 24 horas, sem burocracia.</p>
+                </div>
+            </section>
+
+            <!-- Cards de Política -->
+            <section class="content-section fade-in-up">
+                <h2 class="section-title">
+                    <i class="fas fa-file-contract"></i>
+                    Condições do Reembolso
+                </h2>
+                
+                <div class="policy-cards">
+                    <!-- Card 1 -->
+                    <div class="policy-card important">
+                        <div class="policy-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h3>Reembolso Aprovado</h3>
+                        <p>Quando o produto não é entregue após confirmação do pagamento.</p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="policy-card">
+                        <div class="policy-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h3>Reembolso Aprovado</h3>
+                        <p>Erro no sistema que impede a entrega dos Robux.</p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="policy-card">
+                        <div class="policy-icon">
+                            <i class="fas fa-times-circle"></i>
+                        </div>
+                        <h3>Reembolso Negado</h3>
+                        <p>Se os Robux já foram resgatados na conta do Roblox.</p>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="policy-card">
+                        <div class="policy-icon">
+                            <i class="fas fa-times-circle"></i>
+                        </div>
+                        <h3>Reembolso Negado</h3>
+                        <p>Arrependimento após resgate bem-sucedido dos Robux.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Lista de Condições -->
+            <section class="content-section fade-in-up">
+                <h2 class="section-title">
+                    <i class="fas fa-list-check"></i>
+                    Situações para Reembolso
+                </h2>
+                
+                <div class="conditions-list">
+                    <div class="condition-item approved">
+                        <i class="fas fa-check"></i>
+                        <div>
+                            <h4>Não Recebimento do Produto</h4>
+                            <p>Se você não receber os Robux via e-mail após 1 hora da confirmação do pagamento.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="condition-item approved">
+                        <i class="fas fa-check"></i>
+                        <div>
+                            <h4>Código Inválido ou Expirado</h4>
+                            <p>Se o código recebido estiver inválido ou expirado no momento do resgate.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="condition-item approved">
+                        <i class="fas fa-check"></i>
+                        <div>
+                            <h4>Erro no Sistema</h4>
+                            <p>Problemas técnicos em nossa plataforma que impeçam a entrega.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="condition-item denied">
+                        <i class="fas fa-times"></i>
+                        <div>
+                            <h4>Arrependimento Pós-Resgate</h4>
+                            <p>Reembolso não é possível após os Robux serem resgatados com sucesso.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="condition-item denied">
+                        <i class="fas fa-times"></i>
+                        <div>
+                            <h4>Uso do Produto</h4>
+                            <p>Se os Robux já foram utilizados para compras dentro do Roblox.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="condition-item denied">
+                        <i class="fas fa-times"></i>
+                        <div>
+                            <h4>Erro do Cliente</h4>
+                            <p>Informação incorreta fornecida durante a compra (ex: e-mail errado).</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Processo de Reembolso -->
+            <section class="content-section fade-in-up">
+                <h2 class="section-title">
+                    <i class="fas fa-cogs"></i>
+                    Como Solicitar Reembolso
+                </h2>
+                <p>Siga estes passos para solicitar seu reembolso de forma rápida e eficiente:</p>
+                
+                <div class="process-steps">
+                    <!-- Passo 1 -->
+                    <div class="process-step">
+                        <div class="step-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="step-content">
+                            <h3 class="step-title">Verifique seu E-mail</h3>
+                            <p class="step-description">
+                                Antes de solicitar o reembolso, verifique sua caixa de entrada, spam e promoções. 
+                                A maioria das entregas acontece em até 5 minutos.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Passo 2 -->
+                    <div class="process-step">
+                        <div class="step-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <div class="step-content">
+                            <h3 class="step-title">Entre em Contato</h3>
+                            <p class="step-description">
+                                Acesse nosso Instagram oficial (@robuxpremium) ou envie um e-mail para 
+                                suporte@robuxpremium.com com o número do pedido.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Passo 3 -->
+                    <div class="process-step">
+                        <div class="step-icon">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+                        <div class="step-content">
+                            <h3 class="step-title">Forneça as Informações</h3>
+                            <p class="step-description">
+                                Envie comprovante de pagamento, e-mail usado na compra e descreva o problema 
+                                encontrado.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Passo 4 -->
+                    <div class="process-step">
+                        <div class="step-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <div class="step-content">
+                            <h3 class="step-title">Análise do Caso</h3>
+                            <p class="step-description">
+                                Nossa equipe analisará sua solicitação em até 2 horas úteis. 
+                                Verificaremos o status da entrega em nossos sistemas.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Passo 5 -->
+                    <div class="process-step">
+                        <div class="step-icon">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <div class="step-content">
+                            <h3 class="step-title">Processamento do Reembolso</h3>
+                            <p class="step-description">
+                                Se aprovado, processaremos o reembolso em até 24 horas. 
+                                O valor retornará para a mesma forma de pagamento utilizada.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Prazos e Informações -->
+            <section class="content-section fade-in-up">
+                <h2 class="section-title">
+                    <i class="fas fa-clock"></i>
+                    Prazos e Informações Importantes
+                </h2>
+                
+                <div class="policy-cards">
+                    <div class="policy-card">
+                        <h3><i class="fas fa-hourglass-half"></i> Prazo de Análise</h3>
+                        <p>Até 2 horas úteis para análise da solicitação de reembolso.</p>
+                    </div>
+                    
+                    <div class="policy-card">
+                        <h3><i class="fas fa-calendar-day"></i> Prazo de Reembolso</h3>
+                        <p>Até 24 horas para processamento após aprovação.</p>
+                    </div>
+                    
+                    <div class="policy-card">
+                        <h3><i class="fas fa-credit-card"></i> Forma de Devolução</h3>
+                        <p>O valor é devolvido para a mesma forma de pagamento utilizada.</p>
+                    </div>
+                    
+                    <div class="policy-card">
+                        <h3><i class="fas fa-history"></i> Validade da Solicitação</h3>
+                        <p>Solicitações devem ser feitas em até 7 dias após a compra.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contato -->
+            <section class="content-section fade-in-up">
+                <h2 class="section-title">
+                    <i class="fas fa-comments"></i>
+                    Precisa de Ajuda?
+                </h2>
+                
+                <div class="important-notice">
+                    <h3><i class="fas fa-life-ring"></i> SUPORTE RÁPIDO E EFICIENTE</h3>
+                    <p>Nossa equipe está disponível para ajudar com qualquer dúvida sobre reembolsos ou problemas com sua compra.</p>
+                        
+                        <div>
+                            <h4><i class="fas fa-envelope"></i> E-mail</h4>
+                            <p>suporte@robuxpremium.com - Resposta em até 2 horas</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Informações Finais -->
+            <section class="content-section fade-in-up">
+                <h2 class="section-title">
+                    <i class="fas fa-info-circle"></i>
+                    Informações Adicionais
+                </h2>
+                
+                <div class="conditions-list">
+                    <div class="condition-item">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <div>
+                            <h4>Transparência Total</h4>
+                            <p>Todos os casos são analisados individualmente com transparência. Mantemos você informado em cada etapa do processo.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="condition-item">
+                        <i class="fas fa-user-shield"></i>
+                        <div>
+                            <h4>Proteção ao Consumidor</h4>
+                            <p>Nossas práticas seguem as diretrizes do Código de Defesa do Consumidor (Lei nº 8.078/90).</p>
+                        </div>
+                    </div>
+                    
+                    <div class="condition-item">
+                        <i class="fas fa-chart-line"></i>
+                        <div>
+                            <h4>Taxa de Sucesso</h4>
+                            <p>99.8% das entregas são realizadas com sucesso. Problemas são raros, mas estamos preparados para resolvê-los.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Final -->
+            <div class="important-notice fade-in-up">
+                <h3><i class="fas fa-star"></i> COMPRA COM CONFIANÇA</h3>
+                <p>Na Robux Premium, sua satisfação é nossa prioridade. Compre com a tranquilidade de saber que estamos aqui para ajudar caso precise.</p>
+                <a href="index.html#produtos" class="support-button" style="background: var(--color-success);">
+                    <i class="fas fa-shopping-cart"></i>
+                    COMPRAR COM SEGURANÇA
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="simple-footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="como-comprar.html" class="footer-link">Como Comprar</a>
+                <a href="politica-reembolso.html" class="footer-link">Política de Reembolso</a>
+                <a href="termos-uso.html" class="footer-link">Termos de Uso</a>
+                <a href="index.html#produtos" class="footer-link">Produtos</a>
+            </div>
+            <p class="copyright">© 2025 Robux Premium. Todos os direitos reservados.</p>
+            <p class="disclaimer">Robux Premium não é afiliado à Roblox Corporation. Roblox é uma marca registrada da Roblox Corporation.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Animação ao scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        // Observar elementos para animação
+        document.querySelectorAll('.content-section, .important-notice, .policy-card, .process-step').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Data de atualização automática
+        const updateDate = document.querySelector('.page-update');
+        if (updateDate) {
+            const now = new Date();
+            const options = { day: 'numeric', month: 'long', year: 'numeric' };
+            const formattedDate = now.toLocaleDateString('pt-BR', options);
+            updateDate.innerHTML = `<i class="fas fa-calendar-alt"></i> Última atualização: ${formattedDate}`;
+        }
+    </script>
+</body>
+</html>
