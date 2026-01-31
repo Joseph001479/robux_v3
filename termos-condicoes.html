@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Termos e Condições | Robux </title>
+    <title>Termos e Condições | Robux</title>
     
     <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -208,7 +208,7 @@
         }
 
         /* ============================================
-           FOOTER
+           FOOTER - APENAS A LOGO CORRIGIDA
            ============================================ */
         .main-footer {
             background: #0A0A0A;
@@ -230,9 +230,13 @@
             gap: var(--space-md);
         }
 
+        /* LOGO DO RODAPÉ CORRIGIDA - SEM DISTORÇÃO */
         .footer-logo {
-            height: 40px;
-            width: auto;
+            height: 50px;           /* Altura um pouco maior */
+            width: auto;            /* Largura proporcional */
+            max-width: 180px;       /* Não deixa ficar muito larga */
+            object-fit: contain;    /* MANTÉM A PROPORÇÃO - ESSENCIAL */
+            display: block;         /* Remove espaço extra abaixo */
         }
 
         .footer-tagline {
@@ -313,6 +317,19 @@
             .btn-voltar {
                 margin-top: var(--space-sm);
             }
+            
+            /* Ajuste da logo no mobile */
+            .footer-logo {
+                height: 45px; /* Um pouco menor no mobile */
+                max-width: 160px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-logo {
+                height: 40px;
+                max-width: 140px;
+            }
         }
     </style>
 </head>
@@ -322,7 +339,7 @@
         <div class="container header-container">
             <a href="../index.html" class="brand">
                 <img src="../assets/logo.png" alt="Robux Premium logo - golden currency symbol for digital Robux transactions" class="logo-img">
-                <div class="brand-name">ROBUX </div>
+                <div class="brand-name">ROBUX</div>
             </a>
             
             <a href="../index.html" class="btn-voltar">
@@ -425,7 +442,7 @@
         </div>
     </main>
 
-    <!-- Footer -->
+    <!-- Footer - COM LOGO CORRIGIDA -->
     <footer class="main-footer">
         <div class="container">
             <div class="footer-content">
