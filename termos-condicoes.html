@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termos e Condições | Robux</title>
+    
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ============================================
+           VARIÁVEIS GLOBAIS
+           ============================================ */
+        :root {
+            --color-primary: #FFD700;
+            --color-primary-dark: #FFAA00;
+            --color-bg-dark: #000000;
+            --color-bg-card: #1A1A1A;
+            --color-text-primary: #FFFFFF;
+            --color-text-secondary: rgba(255, 255, 255, 0.85);
+            --color-text-tertiary: rgba(255, 255, 255, 0.6);
+            --container-max-width: 1200px;
+            --space-sm: 12px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 32px;
+            --radius-md: 12px;
+        }
+
+        /* ============================================
+           RESET E CONFIGURAÇÕES
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--color-bg-dark);
+            color: var(--color-text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ============================================
+           HEADER
+           ============================================ */
+        .main-header {
+            background: rgba(18, 18, 18, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.15);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+
+        .logo-img {
+            height: 40px;
+            width: auto;
+        }
+
+        .brand-name {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 1.25rem;
+            color: var(--color-primary);
+        }
+
+        .btn-voltar {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: 8px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--color-text-primary);
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-voltar:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateX(-5px);
+        }
+
+        /* ============================================
+           PÁGINA TERMOS
+           ============================================ */
+        .terms-page {
+            padding: var(--space-xl) 0;
+            min-height: calc(100vh - 200px);
+        }
+
+        .terms-header {
+            text-align: center;
+            margin-bottom: var(--space-xl);
+            padding: var(--space-xl);
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 170, 0, 0.05) 100%);
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .terms-title {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--color-primary);
+            font-size: 2.5rem;
+            margin-bottom: var(--space-sm);
+        }
+
+        .last-update {
+            color: var(--color-text-tertiary);
+            font-size: 0.9rem;
+        }
+
+        /* CONTEÚDO DOS TERMOS */
+        .terms-content {
+            background: var(--color-bg-card);
+            border-radius: var(--radius-md);
+            padding: var(--space-xl);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .section-title {
+            color: var(--color-primary);
+            font-size: 1.5rem;
+            margin: var(--space-xl) 0 var(--space-md);
+            padding-bottom: var(--space-sm);
+            border-bottom: 2px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .section-title:first-child {
+            margin-top: 0;
+        }
+
+        .terms-list {
+            list-style-type: decimal;
+            padding-left: var(--space-lg);
+            margin-bottom: var(--space-lg);
+        }
+
+        .terms-list li {
+            margin-bottom: var(--space-md);
+            color: var(--color-text-secondary);
+        }
+
+        .terms-list strong {
+            color: var(--color-primary);
+        }
+
+        .highlight-box {
+            background: rgba(255, 215, 0, 0.1);
+            border-left: 4px solid var(--color-primary);
+            padding: var(--space-md);
+            margin: var(--space-lg) 0;
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            background: rgba(255, 255, 255, 0.05);
+            padding: var(--space-md);
+            border-radius: var(--radius-md);
+            margin-top: var(--space-lg);
+        }
+
+        .contact-icon {
+            color: var(--color-primary);
+            font-size: 1.5rem;
+        }
+
+        /* ============================================
+           FOOTER - APENAS A LOGO CORRIGIDA
+           ============================================ */
+        .main-footer {
+            background: #0A0A0A;
+            padding: var(--space-xl) 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: var(--space-xl);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-xl);
+            margin-bottom: var(--space-xl);
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        /* LOGO DO RODAPÉ CORRIGIDA - SEM DISTORÇÃO */
+        .footer-logo {
+            height: 50px;           /* Altura um pouco maior */
+            width: auto;            /* Largura proporcional */
+            max-width: 180px;       /* Não deixa ficar muito larga */
+            object-fit: contain;    /* MANTÉM A PROPORÇÃO - ESSENCIAL */
+            display: block;         /* Remove espaço extra abaixo */
+        }
+
+        .footer-tagline {
+            color: var(--color-text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .footer-link-title {
+            color: var(--color-primary);
+            font-weight: 700;
+            margin-bottom: var(--space-sm);
+        }
+
+        .footer-link {
+            color: var(--color-text-secondary);
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--color-primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: var(--space-lg);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .copyright {
+            color: var(--color-text-tertiary);
+            font-size: 0.85rem;
+            margin-bottom: var(--space-sm);
+        }
+
+        /* ============================================
+           RESPONSIVIDADE
+           ============================================ */
+        @media (min-width: 768px) {
+            .footer-content {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .terms-title {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .terms-page {
+                padding: var(--space-lg) 0;
+            }
+            
+            .terms-content {
+                padding: var(--space-lg);
+            }
+            
+            .terms-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.3rem;
+            }
+            
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+                gap: var(--space-md);
+            }
+            
+            .btn-voltar {
+                margin-top: var(--space-sm);
+            }
+            
+            /* Ajuste da logo no mobile */
+            .footer-logo {
+                height: 45px; /* Um pouco menor no mobile */
+                max-width: 160px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-logo {
+                height: 40px;
+                max-width: 140px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container header-container">
+            <a href="../index.html" class="brand">
+                <img src="../assets/logo.png" alt="Robux Premium logo - golden currency symbol for digital Robux transactions" class="logo-img">
+                <div class="brand-name">ROBUX</div>
+            </a>
+            
+            <a href="../index.html" class="btn-voltar">
+                <i class="fas fa-arrow-left"></i>
+                Voltar para o Site
+            </a>
+        </div>
+    </header>
+
+    <!-- Página de Termos -->
+    <main class="terms-page">
+        <div class="container">
+            <div class="terms-header">
+                <h1 class="terms-title">TERMOS E CONDIÇÕES</h1>
+                <p class="last-update">Última atualização: Janeiro 2025</p>
+            </div>
+            
+            <div class="terms-content">
+                <h2 class="section-title">1. ACEITAÇÃO DOS TERMOS</h2>
+                <p style="color: var(--color-text-secondary); margin-bottom: var(--space-lg);">
+                    Ao utilizar os serviços da Robux Premium, você concorda integralmente com estes Termos e Condições. 
+                    Se não concordar com qualquer parte destes termos, não utilize nossos serviços.
+                </p>
+
+                <h2 class="section-title">2. SERVIÇOS OFERECIDOS</h2>
+                <ol class="terms-list">
+                    <li><strong>Venda de Robux:</strong> Comercialização de moeda virtual Robux para uso na plataforma Roblox.</li>
+                    <li><strong>Entrega Digital:</strong> Entrega automática via e-mail em até 1 minuto após confirmação do pagamento.</li>
+                    <li><strong>Pagamento:</strong> Aceitamos exclusivamente pagamentos via PIX.</li>
+                </ol>
+
+                <div class="highlight-box">
+                    <strong>⚠️ IMPORTANTE:</strong> A Robux Premium não é afiliada, endossada ou patrocinada pela Roblox Corporation. 
+                    Roblox é uma marca registrada da Roblox Corporation.
+                </div>
+
+                <h2 class="section-title">3. POLÍTICA DE PAGAMENTO</h2>
+                <ol class="terms-list">
+                    <li><strong>Pagamento via PIX:</strong> Todos os pagamentos são processados via PIX de forma instantânea.</li>
+                    <li><strong>Preços:</strong> Os preços são mostrados em Reais (R$) e incluem todos os impostos aplicáveis.</li>
+                    <li><strong>Confirmação:</strong> A liberação do produto ocorre apenas após confirmação do pagamento pela instituição financeira.</li>
+                </ol>
+
+                <h2 class="section-title">4. ENTREGA E SUPORTE</h2>
+                <ol class="terms-list">
+                    <li><strong>Tempo de Entrega:</strong> Até 1 minuto após confirmação do pagamento.</li>
+                    <li><strong>Formato:</strong> Código PIN enviado para o e-mail fornecido durante a compra.</li>
+                    <li><strong>Verificação:</strong> Caso não receba em 5 minutos, verifique sua caixa de spam ou entre em contato.</li>
+                </ol>
+
+                <h2 class="section-title">5. POLÍTICA DE REEMBOLSO</h2>
+                <ol class="terms-list">
+                    <li><strong>Reembolsos:</strong> Apenas em casos de falha técnica comprovada de nossa parte.</li>
+                    <li><strong>Não Reembolsável:</strong> Após o código PIN ter sido enviado ao cliente.</li>
+                    <li><strong>Erro do Cliente:</strong> Erros na digitação do e-mail não são elegíveis para reembolso.</li>
+                </ol>
+
+                <h2 class="section-title">6. RESPONSABILIDADES DO CLIENTE</h2>
+                <ol class="terms-list">
+                    <li>Fornecer e-mail válido e verificar caixa de spam.</li>
+                    <li>Utilizar os Robux adquiridos de acordo com os Termos de Uso da Roblox.</li>
+                    <li>Não realizar chargeback ou estorno junto à instituição financeira.</li>
+                </ol>
+
+                <h2 class="section-title">7. LIMITAÇÃO DE RESPONSABILIDADE</h2>
+                <p style="color: var(--color-text-secondary); margin-bottom: var(--space-lg);">
+                    A Robux Premium não se responsabiliza por:
+                </p>
+                <ol class="terms-list">
+                    <li>Suspensão ou banimento de contas pela Roblox Corporation.</li>
+                    <li>Uso indevido dos Robux adquiridos.</li>
+                    <li>Problemas técnicos da plataforma Roblox.</li>
+                </ol>
+
+                <h2 class="section-title">8. PRIVACIDADE</h2>
+                <p style="color: var(--color-text-secondary); margin-bottom: var(--space-lg);">
+                    Coletamos apenas e-mail para entrega do produto. Não compartilhamos seus dados com terceiros.
+                </p>
+
+                <h2 class="section-title">9. ALTERAÇÕES NOS TERMOS</h2>
+                <p style="color: var(--color-text-secondary); margin-bottom: var(--space-lg);">
+                    Reservamo-nos o direito de modificar estes termos a qualquer momento. 
+                    Alterações serão publicadas nesta página com nova data de atualização.
+                </p>
+
+                <h2 class="section-title">10. CONTATO</h2>
+                <div class="contact-info">
+                    <i class="fas fa-headset contact-icon"></i>
+                    <div>
+                        <p style="color: var(--color-text-secondary);">
+                            <strong>Dúvidas ou problemas?</strong><br>
+                            Entre em contato: 
+                            <a href="mailto:suporte@robuxpremium.com" style="color: var(--color-primary);">
+                                suporte@robuxpremium.com
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer - COM LOGO CORRIGIDA -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="../assets/logo.png" alt="Robux Premium" class="footer-logo">
+                    <p class="footer-tagline">
+                        Entrega automática de Robux com segurança e agilidade.
+                    </p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-link-title">NAVEGAÇÃO</h4>
+                    <a href="../index.html" class="footer-link">Página Inicial</a>
+                    <a href="../como-comprar.html" class="footer-link">Como Comprar</a>
+                    <a href="../politica-reembolso.html" class="footer-link">Política de Reembolso</a>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-link-title">LEGAL</h4>
+                    <a href="#" class="footer-link">Termos e Condições</a>
+                    <a href="../politica-privacidade.html" class="footer-link">Política de Privacidade</a>
+                    <a href="#" class="footer-link">Reclame Aqui</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">
+                    © 2025 Robux Premium. Todos os direitos reservados.<br>
+                    Robux Premium não é afiliado à Roblox Corporation.
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

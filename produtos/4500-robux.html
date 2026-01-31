@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.500 ROBUX | Robux</title>
+    
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS 100% RESPONSIVO -->
+    <style>
+        /* ============================================
+           VARIÁVEIS GLOBAIS
+           ============================================ */
+        :root {
+            /* Cores */
+            --color-primary: #FFD700;
+            --color-primary-dark: #FFAA00;
+            --color-success: #4CAF50;
+            --color-error: #FF4D4D;
+            --color-info: #2196F3;
+            --color-bg-dark: #000000;
+            --color-bg-card: #1A1A1A;
+            --color-text-primary: #FFFFFF;
+            --color-text-secondary: rgba(255, 255, 255, 0.85);
+            --color-text-tertiary: rgba(255, 255, 255, 0.6);
+            
+            /* Responsividade */
+            --container-max-width: 1200px;
+            
+            /* Espaçamentos responsivos */
+            --space-xs: 8px;
+            --space-sm: 12px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 32px;
+            --space-2xl: 48px;
+            
+            /* Bordas */
+            --radius-sm: 6px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 20px;
+            --radius-full: 50px;
+        }
+
+        /* ============================================
+           RESET E CONFIGURAÇÕES GERAIS
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--color-bg-dark);
+            color: var(--color-text-primary);
+            line-height: 1.5;
+            overflow-x: hidden;
+            min-height: 100vh;
+            padding-top: 38px; /* Espaço para alert bar fixa */
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--container-max-width);
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            font-family: inherit;
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+
+        /* ============================================
+           BARRA DE ALERTA (FIXA NO TOPO - SEMPRE VISÍVEL)
+           ============================================ */
+        .alert-bar {
+            background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+            color: #000;
+            padding: 10px 0;
+            text-align: center;
+            font-weight: 700;
+            font-size: 0.75rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            width: 100%;
+        }
+
+        .alert-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+            flex-wrap: wrap;
+        }
+
+        /* ============================================
+           HEADER RESPONSIVO - QUE SOME AO ROLAR
+           ============================================ */
+        .main-header {
+            background: rgba(18, 18, 18, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            position: fixed;
+            top: 38px; /* Abaixo da alert bar */
+            left: 0;
+            right: 0;
+            z-index: 999;
+            border-bottom: 1px solid rgba(255, 215, 0, 0.15);
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .main-header.hidden {
+            transform: translateY(-100%);
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--space-md);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            flex-shrink: 0;
+        }
+
+        .logo-img {
+            height: 40px;
+            width: auto;
+            object-fit: contain; /* IMPORTANTE: evita distorção */
+        }
+
+        .brand-name {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 1.25rem;
+            color: var(--color-primary);
+            line-height: 1;
+        }
+
+        .brand-tagline {
+            font-size: 0.7rem;
+            color: var(--color-text-tertiary);
+            margin-top: 2px;
+        }
+
+        .btn-voltar-produtos {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--color-text-primary);
+            border-radius: var(--radius-full);
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .btn-voltar-produtos:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateX(-3px);
+        }
+
+        /* ============================================
+           PÁGINA DO PRODUTO (100% RESPONSIVA)
+           ============================================ */
+        .product-page {
+            padding: var(--space-2xl) 0;
+            min-height: calc(100vh - 120px);
+        }
+
+        .product-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-2xl);
+        }
+
+        /* MEDIA QUERIES PARA LAYOUT RESPONSIVO */
+        @media (min-width: 768px) {
+            .product-container {
+                grid-template-columns: 1fr 1fr;
+                gap: var(--space-2xl);
+            }
+        }
+
+        /* COLUNA DA IMAGEM */
+        .product-media {
+            background: var(--color-bg-card);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .product-image-container {
+            text-align: center;
+            margin-bottom: var(--space-xl);
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-main-image {
+            max-width: 100%;
+            height: auto;
+            max-height: 300px;
+            object-fit: contain;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* ESTATÍSTICAS RESPONSIVAS */
+        .product-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-md);
+        }
+
+        @media (max-width: 480px) {
+            .product-stats {
+                grid-template-columns: 1fr;
+                gap: var(--space-sm);
+            }
+        }
+
+        .stat-box {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: var(--radius-md);
+            padding: var(--space-md);
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 900;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--color-text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* COLUNA DO CHECKOUT */
+        .product-info {
+            background: var(--color-bg-card);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
+        }
+
+        @media (min-width: 768px) {
+            .product-info {
+                position: sticky;
+                top: 100px;
+            }
+        }
+
+        .product-badge {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--color-primary), var(--color-primary-dark));
+            color: #000;
+            padding: 6px 16px;
+            border-radius: var(--radius-full);
+            font-weight: 800;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            margin-bottom: var(--space-md);
+        }
+
+        .product-title {
+            font-size: 2rem;
+            color: var(--color-primary);
+            margin-bottom: var(--space-md);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.2;
+        }
+
+        @media (max-width: 768px) {
+            .product-title {
+                font-size: 1.75rem;
+            }
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+            padding-bottom: var(--space-lg);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .rating-stars {
+            color: var(--color-primary);
+            font-size: 1.1rem;
+        }
+
+        .rating-count {
+            color: var(--color-text-tertiary);
+            font-size: 0.85rem;
+        }
+
+        /* PREÇOS RESPONSIVOS */
+        .product-pricing {
+            margin-bottom: var(--space-xl);
+        }
+
+        .current-price {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--color-success);
+            line-height: 1;
+            margin-bottom: var(--space-xs);
+        }
+
+        @media (max-width: 768px) {
+            .current-price {
+                font-size: 2rem;
+            }
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: var(--color-text-tertiary);
+            font-size: 1rem;
+        }
+
+        .discount-badge {
+            display: inline-block;
+            background: var(--color-error);
+            color: white;
+            padding: 4px 10px;
+            border-radius: var(--radius-full);
+            font-weight: 700;
+            font-size: 0.75rem;
+            margin-left: var(--space-sm);
+        }
+
+        /* INFO DE ENTREGA */
+        .delivery-info {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            color: var(--color-success);
+            font-weight: 600;
+            margin-bottom: var(--space-xl);
+            padding: var(--space-md);
+            background: rgba(76, 175, 80, 0.1);
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(76, 175, 80, 0.2);
+            font-size: 0.9rem;
+        }
+
+        /* FORMULÁRIO RESPONSIVO */
+        .checkout-form {
+            margin-top: var(--space-xl);
+        }
+
+        .form-group {
+            margin-bottom: var(--space-lg);
+        }
+
+        .form-label {
+            display: block;
+            color: var(--color-text-primary);
+            font-weight: 600;
+            margin-bottom: var(--space-sm);
+            font-size: 0.9rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 14px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-md);
+            color: var(--color-text-primary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            border-color: var(--color-primary);
+            background: rgba(255, 255, 255, 0.08);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.1);
+        }
+
+        /* MÉTODO PIX */
+        .payment-method-single {
+            background: linear-gradient(135deg, rgba(32, 201, 151, 0.1) 0%, rgba(32, 201, 151, 0.05) 100%);
+            border: 1px solid rgba(32, 201, 151, 0.2);
+            border-radius: var(--radius-md);
+            padding: var(--space-lg);
+            margin-bottom: var(--space-lg);
+            text-align: center;
+        }
+
+        .pix-icon {
+            font-size: 2.5rem;
+            color: #32D957;
+            margin-bottom: var(--space-sm);
+        }
+
+        .pix-title {
+            color: var(--color-primary);
+            font-size: 1.1rem;
+            margin-bottom: var(--space-xs);
+        }
+
+        .pix-description {
+            color: var(--color-text-secondary);
+            font-size: 0.85rem;
+        }
+
+        /* BOTÃO DE COMPRA RESPONSIVO */
+        .btn-buy {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(45deg, var(--color-primary), var(--color-primary-dark));
+            color: #000;
+            border-radius: var(--radius-md);
+            font-weight: 900;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-md);
+            transition: all 0.3s ease;
+            margin-top: var(--space-lg);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-buy:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.3);
+        }
+
+        @media (max-width: 480px) {
+            .btn-buy {
+                padding: 16px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* SEÇÃO COMO RESGATAR (RESPONSIVA) */
+        .redeem-section {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 170, 0, 0.05) 100%);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+            margin-top: var(--space-2xl);
+        }
+
+        .redeem-title {
+            color: var(--color-primary);
+            font-size: 1.5rem;
+            margin-bottom: var(--space-lg);
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .redeem-steps {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-lg);
+        }
+
+        @media (min-width: 768px) {
+            .redeem-steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 992px) {
+            .redeem-steps {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .redeem-step {
+            text-align: center;
+            padding: var(--space-lg);
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--color-primary);
+            color: #000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.1rem;
+            margin: 0 auto var(--space-md);
+        }
+
+        .step-title {
+            color: var(--color-primary);
+            font-size: 1.1rem;
+            margin-bottom: var(--space-sm);
+        }
+
+        .step-description {
+            color: var(--color-text-secondary);
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        /* SELOS DE SEGURANÇA RESPONSIVOS */
+        .security-badges {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-xl);
+            margin: var(--space-2xl) 0;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 768px) {
+            .security-badges {
+                gap: var(--space-lg);
+            }
+        }
+
+        .security-badge {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-sm);
+            color: var(--color-text-secondary);
+            font-size: 0.8rem;
+            min-width: 100px;
+        }
+
+        .security-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--color-primary);
+        }
+
+        /* ============================================
+           FOOTER RESPONSIVO - LOGO CORRIGIDA
+           ============================================ */
+        .main-footer {
+            background: #0A0A0A;
+            padding: var(--space-xl) 0 var(--space-lg);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: var(--space-2xl);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--space-xl);
+            margin-bottom: var(--space-xl);
+        }
+
+        @media (min-width: 768px) {
+            .footer-content {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .footer-brand {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .footer-logo {
+            height: 50px; /* Altura fixa para consistência */
+            width: auto;
+            object-fit: contain; /* CORREÇÃO: evita distorção */
+            max-width: 180px; /* Largura máxima */
+        }
+
+        .footer-tagline {
+            color: var(--color-text-secondary);
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
+        }
+
+        .footer-link-title {
+            color: var(--color-primary);
+            font-weight: 700;
+            margin-bottom: var(--space-sm);
+            font-size: 1rem;
+        }
+
+        .footer-link {
+            color: var(--color-text-secondary);
+            font-size: 0.85rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--color-primary);
+        }
+
+        .footer-bottom {
+            padding-top: var(--space-lg);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+
+        .footer-links-row {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-xl);
+            margin-bottom: var(--space-lg);
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 768px) {
+            .footer-links-row {
+                flex-direction: column;
+                gap: var(--space-md);
+            }
+        }
+
+        .copyright {
+            color: var(--color-text-tertiary);
+            font-size: 0.8rem;
+            margin-bottom: var(--space-sm);
+        }
+
+        .disclaimer {
+            color: var(--color-text-tertiary);
+            font-size: 0.7rem;
+            opacity: 0.7;
+            line-height: 1.4;
+        }
+
+        /* ============================================
+           ANIMAÇÕES
+           ============================================ */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        /* ============================================
+           UTILITÁRIOS PARA MOBILE
+           ============================================ */
+        @media (max-width: 768px) {
+            html {
+                font-size: 14px;
+            }
+            
+            body {
+                padding-top: 32px; /* Ajuste para mobile */
+            }
+            
+            .container {
+                padding: 0 var(--space-sm);
+            }
+            
+            .product-page {
+                padding: var(--space-xl) 0;
+            }
+            
+            .product-media,
+            .product-info {
+                padding: var(--space-lg);
+            }
+            
+            .alert-bar {
+                font-size: 0.65rem;
+                padding: 8px 0;
+            }
+            
+            .main-header {
+                top: 32px; /* Ajuste para mobile */
+                padding: 10px 0;
+            }
+            
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+                gap: var(--space-sm);
+            }
+            
+            .btn-voltar-produtos {
+                order: 3;
+                width: 100%;
+                justify-content: center;
+                margin-top: var(--space-sm);
+                font-size: 0.8rem;
+                padding: 6px 12px;
+            }
+            
+            .product-image-container {
+                min-height: 200px;
+            }
+            
+            .product-main-image {
+                max-height: 200px;
+            }
+            
+            .footer-logo {
+                height: 40px; /* Menor no mobile */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .redeem-step {
+                padding: var(--space-md);
+            }
+            
+            .security-badge {
+                min-width: 80px;
+            }
+            
+            .security-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+        }
+
+        /* ============================================
+           TIPOGRAFIA RESPONSIVA
+           ============================================ */
+        @media (max-width: 480px) {
+            h1, h2, h3 {
+                font-size: calc(1rem + 2vw);
+            }
+            
+            .product-title {
+                font-size: 1.5rem;
+            }
+            
+            .redeem-title {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de Alerta (SEMPRE VISÍVEL) -->
+    <div class="alert-bar">
+        <div class="alert-content">
+            <i class="fas fa-bolt"></i>
+            <span>⚠ ENTREGA AUTOMÁTICA 24H | COMPRE APENAS NO SITE OFICIAL</span>
+            <i class="fas fa-shield-alt"></i>
+        </div>
+    </div>
+
+    <!-- Header Responsivo (SOME AO ROLAR) -->
+    <header class="main-header" id="mainHeader">
+        <div class="container header-container">
+            <a href="../index.html" class="brand">
+                <!-- LOGO RESPONSIVA -->
+                <img src="../assets/logo.png" alt="Robux Premium logo - golden currency symbol for digital Robux transactions" class="logo-img">
+                <div class="brand-text">
+                    <div class="brand-name">ROBUX </div>
+                    <div class="brand-tagline">Entrega Imediata</div>
+                </div>
+            </a>
+            
+            <a href="../index.html" class="btn-voltar-produtos">
+                <i class="fas fa-arrow-left"></i>
+                Voltar para Produtos
+            </a>
+        </div>
+    </header>
+
+    <!-- Página do Produto Responsiva -->
+    <main class="product-page">
+        <div class="container">
+            <div class="product-container">
+                <!-- Coluna da Imagem -->
+                <div class="product-media fade-in">
+                    <div class="product-image-container">
+                        <!-- IMAGEM DO PRODUTO 4.500 ROBUX -->
+                        <img src="../assets/4500-min.png" alt="4.500 Robux" class="product-main-image"
+                             onerror="this.onerror=null; this.src='https://via.placeholder.com/400x400/FFD700/000000?text=4500+ROBUX';">
+                    </div>
+                    
+                    <!-- Estatísticas -->
+                    <div class="product-stats">
+                        <div class="stat-box">
+                            <div class="stat-value">
+                                <i class="fas fa-star"></i> 5.0
+                            </div>
+                            <div class="stat-label">Avaliação</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-value">28.543+</div>
+                            <div class="stat-label">Vendas</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-value">1 MIN</div>
+                            <div class="stat-label">Entrega</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coluna do Checkout -->
+                <div class="product-info fade-in">
+                    <div class="product-badge">MAIS VENDIDO</div>
+                    <h1 class="product-title">4.500 ROBUX</h1>
+                    
+                    <div class="product-rating">
+                        <div class="rating-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <span class="rating-count">(+3.127 avaliações)</span>
+                    </div>
+                    
+                    <div class="product-pricing">
+                        <div class="old-price">De: R$ 129,90</div>
+                        <div class="current-price">R$ 159,90</div>
+                        <div>
+                            <span class="discount-badge">-23% OFF</span>
+                        </div>
+                    </div>
+                    
+                    <div class="delivery-info">
+                        <i class="fas fa-bolt"></i>
+                        <span>Entrega Automática em 1 minuto</span>
+                    </div>
+                    
+                    <!-- Formulário de Compra -->
+                    <form class="checkout-form" id="checkoutForm">
+                        <div class="form-group">
+                            
+                        </div>
+                        
+                        <!-- Método PIX -->
+                        <div class="payment-method-single">
+                            <div class="pix-icon">
+                                <i class="fab fa-pix"></i>
+                            </div>
+                            <h3 class="pix-title">PAGAMENTO POR PIX</h3>
+                            <p class="pix-description">Pagamento instantâneo e 100% seguro</p>
+                        </div>
+                        
+                        <!-- REMOVA O BOTÃO E COLOQUE ESTE LINK -->
+                          <a href="https://checkout.pagamentopremiumseguro.store/payment/checkout/1c59d1fd-fd23-49e8-b686-7ed28a2550d3" 
+                         class="btn-buy" 
+                         target="_blank"
+                         style="text-decoration: none; display: block; text-align: center;">
+                     <i class="fas fa-lock"></i>
+                          COMPRAR AGORA - R$  129,90
+                       </a>
+                    
+                    <div style="margin-top: var(--space-md); text-align: center;">
+                        <p style="color: var(--color-text-tertiary); font-size: 0.8rem;">
+                            <i class="fas fa-shield-alt"></i> Compra 100% segura
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Seção Como Resgatar -->
+            <section class="redeem-section">
+                <h2 class="redeem-title">
+                    <i class="fas fa-gift"></i> COMO RESGATAR SEUS ROBUX
+                </h2>
+                
+                <div class="redeem-steps">
+                    <div class="redeem-step fade-in">
+                        <div class="step-number">1</div>
+                        <h3 class="step-title">Receba o Gift Card</h3>
+                        <p class="step-description">Assim que finalizar a compra, o gift card chega direto no seu e-mail.</p>
+                    </div>
+                    
+                    <div class="redeem-step fade-in">
+                        <div class="step-number">2</div>
+                        <h3 class="step-title">Entrega Automática</h3>
+                        <p class="step-description">Receba automaticamente após a compra - em menos de 1 minuto.</p>
+                    </div>
+                    
+                    <div class="redeem-step fade-in">
+                        <div class="step-number">3</div>
+                        <h3 class="step-title">Resgate no Roblox</h3>
+                        <p class="step-description">Clique em "Resgatar Cartões" e insira o código PIN recebido.</p>
+                    </div>
+                    
+                    <div class="redeem-step fade-in">
+                        <div class="step-number">4</div>
+                        <h3 class="step-title">Aproveite!</h3>
+                        <p class="step-description">Os Robux caem direto na sua conta. Só aproveitar e ser feliz!</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Selos de Segurança -->
+            <div class="security-badges">
+                <div class="security-badge fade-in">
+                    <div class="security-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <span>Site Seguro</span>
+                </div>
+                
+                <div class="security-badge fade-in">
+                    <div class="security-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <span>SSL 256-bit</span>
+                </div>
+                
+                <div class="security-badge fade-in">
+                    <div class="security-icon">
+                        <i class="fas fa-truck-fast"></i>
+                    </div>
+                    <span>Entrega Imediata</span>
+                </div>
+                
+                <div class="security-badge fade-in">
+                    <div class="security-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <span>Suporte 24h</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Responsivo -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <!-- LOGO DO FOOTER RESPONSIVA -->
+                    <img src="../assets/logo.png" alt="Robux Premium" class="footer-logo">
+                    <p class="footer-tagline">Os melhores preços de Robux com entrega automática e segurança garantida.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-link-title">ATENDIMENTO</h4>
+                    <a href="mailto:suporte@robuxpremium.com" class="footer-link">
+                        <i class="fas fa-envelope"></i> E-mail
+                    </a>
+                </div>
+                
+                <div class="footer-links">
+                    <h4 class="footer-link-title">INFORMAÇÕES</h4>
+                    <a href="../como-comprar.html" class="footer-link">Como Comprar</a>
+                    <a href="../politica-reembolso.html" class="footer-link">Política de Reembolso</a>
+                    <a href="../termos-uso.html" class="footer-link">Termos de Uso</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-links-row">
+                    <a href="../reclame-aqui.html" class="footer-link">Reclame Aqui</a>
+                    <a href="../termos-condicoes.html" class="footer-link">Termos e Condições</a>
+                    <a href="../politica-privacidade.html" class="footer-link">Políticas de Privacidade</a>
+                </div>
+                
+                <p class="copyright">© 2025–2026 Robux Premium. Todos os direitos reservados.</p>
+                <p class="disclaimer">Robux Premium não é afiliado à Roblox Corporation. Roblox é uma marca registrada da Roblox Corporation.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 Página 4.500 Robux Responsiva Carregada');
+            
+            // Dados do produto 4.500 ROBUX
+            const productData = {
+                name: '4.500 ROBUX',
+                price: 129.90,
+                oldPrice: 159.90,
+                discount: 25,
+                rating: 5.0,
+                reviews: "+3.127",
+                sales: "28.543+"
+            };
+            
+            // Atualizar dados
+            updateProductData(productData);
+            setupCheckoutForm();
+            setupAnimations();
+            setupHeaderScroll();
+        });
+        
+        // HEADER QUE SOME AO ROLAR
+        function setupHeaderScroll() {
+            let lastScrollTop = 0;
+            const header = document.getElementById('mainHeader');
+            const scrollThreshold = 100; // Quantidade mínima de scroll para esconder
+            
+            window.addEventListener('scroll', function() {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                if (scrollTop > lastScrollTop && scrollTop > scrollThreshold) {
+                    // Rolando para baixo - esconde header
+                    header.classList.add('hidden');
+                } else {
+                    // Rolando para cima - mostra header
+                    header.classList.remove('hidden');
+                }
+                
+                lastScrollTop = scrollTop;
+            });
+        }
+        
+        function updateProductData(data) {
+            // Atualizar elementos
+            const title = document.querySelector('.product-title');
+            const price = document.querySelector('.current-price');
+            const oldPrice = document.querySelector('.old-price');
+            const discount = document.querySelector('.discount-badge');
+            const ratingCount = document.querySelector('.rating-count');
+            const buyButton = document.querySelector('.btn-buy');
+            
+            if (title) title.textContent = data.name;
+            if (price) price.textContent = `R$ ${data.price.toFixed(2).replace('.', ',')}`;
+            if (oldPrice) oldPrice.textContent = `De: R$ ${data.oldPrice.toFixed(2).replace('.', ',')}`;
+            if (discount) discount.textContent = `-${data.discount}% OFF`;
+            if (ratingCount) ratingCount.textContent = `(${data.reviews} avaliações)`;
+            if (buyButton) buyButton.innerHTML = `<i class="fas fa-lock"></i> COMPRAR AGORA - R$ ${data.price.toFixed(2).replace('.', ',')}`;
+        }
+        
+        function setupCheckoutForm() {
+            const form = document.getElementById('checkoutForm');
+            if (!form) return;
+            
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = document.getElementById('email').value;
+                
+                if (!email || !email.includes('@')) {
+                    showAlert('Por favor, insira um e-mail válido', 'error');
+                    return;
+                }
+                
+                showLoading();
+                setTimeout(() => {
+                    hideLoading();
+                    showSuccessModal();
+                }, 1500);
+            });
+        }
+        
+        function showLoading() {
+            const button = document.querySelector('.btn-buy');
+            const originalText = button.innerHTML;
+            button.dataset.original = originalText;
+            
+            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> PROCESSANDO...';
+            button.disabled = true;
+            button.style.opacity = '0.8';
+        }
+        
+        function hideLoading() {
+            const button = document.querySelector('.btn-buy');
+            button.innerHTML = button.dataset.original || '<i class="fas fa-lock"></i> COMPRAR AGORA';
+            button.disabled = false;
+            button.style.opacity = '1';
+        }
+        
+        function showSuccessModal() {
+            const email = document.getElementById('email').value;
+            const modalHTML = `
+                <div style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); display: flex; align-items: center; justify-content: center; z-index: 10000; animation: fadeIn 0.3s ease;">
+                    <div style="background: var(--color-bg-card); border-radius: var(--radius-xl); padding: var(--space-xl); max-width: 500px; width: 90%; text-align: center; animation: slideIn 0.4s ease;">
+                        <div style="width: 80px; height: 80px; background: var(--color-success); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-lg); font-size: 2.5rem; color: white;">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <h2 style="color: var(--color-success); margin-bottom: var(--space-md);">COMPRA REALIZADA!</h2>
+                        <p style="color: var(--color-text-secondary); margin-bottom: var(--space-lg);">
+                            Seus 1.700 Robux serão enviados para:<br>
+                            <strong>${email}</strong><br><br>
+                            📨 Verifique sua caixa de entrada e spam.
+                        </p>
+                        <button onclick="this.closest('div[style*=\"position: fixed\"]').remove()" style="background: var(--color-primary); color: #000; padding: var(--space-md) var(--space-xl); border-radius: var(--radius-md); font-weight: 700; cursor: pointer; border: none;">
+                            OK, ENTENDI
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            const modalDiv = document.createElement('div');
+            modalDiv.innerHTML = modalHTML;
+            document.body.appendChild(modalDiv);
+        }
+        
+        function showAlert(message, type = 'error') {
+            const alert = document.createElement('div');
+            alert.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${type === 'error' ? 'var(--color-error)' : 'var(--color-success)'};
+                color: white;
+                padding: var(--space-md);
+                border-radius: var(--radius-md);
+                z-index: 10000;
+                animation: slideInRight 0.3s ease;
+                display: flex;
+                align-items: center;
+                gap: var(--space-sm);
+            `;
+            
+            alert.innerHTML = `
+                <i class="fas fa-${type === 'error' ? 'exclamation-triangle' : 'check-circle'}"></i>
+                <span>${message}</span>
+            `;
+            
+            document.body.appendChild(alert);
+            
+            setTimeout(() => {
+                alert.remove();
+            }, 3000);
+        }
+        
+        function setupAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+        }
+    </script>
+</body>
+</html>
